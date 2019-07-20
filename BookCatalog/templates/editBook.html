@@ -1,0 +1,37 @@
+{% include "navbar.html" %}
+<div class="jumbotron center-content">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1 padding-top">
+      <form action="{{ url_for('editBook',book_id = book.id)}}" method = "post">
+        <div class="form-group">
+          <label for="name">Title:</label>
+          <input type ="text" class="form-control" name="title" value="{{ book.title }}">
+          <div class="padding-bottom"></div>
+          <label for="name">Author:</label>
+          <input type ="text" class="form-control" name="author" value="{{ book.author }}">
+          <div class="padding-bottom"></div>
+          <label for="name">Description:</label>
+          <input type ="text" class="form-control" maxlength="500" name="description" value="{{ book.description }}">
+          <div class="padding-bottom"></div>
+          <label for="genre">Genre:</label>
+            <select name="genre">
+              {% for genre in genres %}
+              {% if genre.id == book.genre_id %}
+                <option selected="selected" value="{{ genre.id }}">{{ genre.name }}</option>
+              {% else %}
+                <option value="{{ genre.id }}">{{ genre.name }}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          <div class="padding-bottom"></div>
+          <button type="submit" class="btn btn-default" id="submit" type="submit">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+          <a href = "{{url_for('getBookById', book_id=book.id)}}">
+            <button class="btn btn-default delete">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

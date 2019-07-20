@@ -1,0 +1,26 @@
+.blue-background {
+  background-color: aquamarine;
+}
+
+
+.genre-card {
+  overflow-y: scroll;
+  min-height: 300px;
+  max-height: 300px;
+}
+
+.center-content {
+  align-content: center;
+}
+
+.padding-top {
+	padding-top: 30px;
+}
+
+.padding-bottom-extra {
+	padding-bottom: 50px;
+}
+
+.padding-bottom {
+	padding-bottom: 30px;
+}

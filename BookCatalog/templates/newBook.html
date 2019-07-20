@@ -1,0 +1,42 @@
+{% include "navbar.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-11 col-md-offset-1 padding-none">
+    <h1>New Book</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-1 padding-top">
+    <form action="#" method = "post">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type ="text" class="form-control" maxlength="100" name="title" required>
+        <div class="padding-bottom"></div>
+
+        <label for="author">Author:</label>
+        <input type ="text" class="form-control" maxlength="100" name="author" required>
+        <div class="padding-bottom"></div>
+
+        <label for="description">Description:</label>
+        <input type ="text" class="form-control" maxlength="500" name="description" required>
+        <div class="padding-bottom-extra"></div>
+
+        <label for="genre">Genre:</label>
+        <select name="genre">
+          {% for genre in genres %}
+          <option value="{{ genre.id }}">{{ genre.name }}</option>
+          {% endfor %}
+        </select>
+        <p> Don't see the genre you want? 
+          <a href="{{ url_for('newGenre') }}">
+            <span aria-hidden="true"></span>Add Genre
+          </a>
+        </p>
+      </div>
+        <div class="padding-bottom"></div>
+        <button class="btn btn-default" id="submit" type="submit">
+        <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Add New Book</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
